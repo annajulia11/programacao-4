@@ -1,0 +1,995 @@
+/* NARUTO SHIPPUDEN WIKI — estilo.css */
+
+/* --- 1. RESET & BASE --- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d0d0d;
+  color: #e8e8e8;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+main {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 4rem 0;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.divider {
+  height: 1px;
+  background: #2a2a2a;
+  margin-bottom: 2rem;
+}
+
+.sec-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #cc5500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #aaa;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.75rem;
+  background: #1a1a1a;
+  border-left: 3px solid #cc5500;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+/* --- 2. TIPOGRAFIA --- */
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 0.75rem;
+  color: #ccc;
+}
+
+a {
+  color: #e67e22;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #f39c12;
+  text-decoration: underline;
+}
+
+strong {
+  color: #fff;
+}
+
+em {
+  color: #e8a87c;
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+  color: #bbb;
+}
+
+ul li,
+ol li {
+  margin-bottom: 0.3rem;
+}
+
+/* --- 3. NAVEGAÇÃO --- */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #111;
+  border-bottom: 1px solid #222;
+}
+
+nav {
+  width: 100%;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  gap: 1.5rem;
+}
+
+.nav-logo {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e67e22;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.nav-logo:hover {
+  color: #f39c12;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li a {
+  font-size: 13px;
+  color: #aaa;
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: #222;
+  color: #e67e22;
+  text-decoration: none;
+}
+
+/* --- 4. INTRODUÇÃO --- */
+
+#intro {
+  padding-top: 3rem;
+}
+
+.intro-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: #111;
+  border-radius: 12px;
+  border: 1px solid #222;
+}
+
+.logo img {
+  max-width: 280px;
+  width: 100%;
+  filter: drop-shadow(0 0 20px rgba(230, 126, 34, 0.3));
+}
+
+.welcome-title {
+  font-size: 2.0rem;
+  color: #e67e22;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 20px rgba(249, 150, 2, 0.538));
+}
+
+.intro-text p {
+  font-size: 16px; 
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 6rem;
+  align-items: start;
+  margin-bottom: 2.5rem;
+}
+
+.intro-descricao p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.ficha-img img {
+  width: 100%;
+  max-width: 290px;
+  border-radius: 12px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 20px rgba(230, 126, 34, 0.3));
+}
+
+.kurama-ficha-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 4rem;
+}
+
+.kurama-img {
+  flex-shrink: 0;
+}
+
+.kurama-img img {
+  max-width: 500px;
+  width: 100%;
+  filter: drop-shadow(0 0 20px rgba(230, 126, 34, 0.3));
+}
+
+.info-card {
+  flex: 1;
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.info-card-header {
+  background: #cc5500;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+}
+
+.info-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.info-card table tr {
+  border-bottom: 1px solid #1f1f1f;
+  transition: background 0.2s;
+}
+
+.info-card table tr:last-child {
+  border-bottom: none;
+}
+
+.info-card table tr:hover {
+  background: #181818;
+}
+
+.info-card table td {
+  padding: 0.6rem 1rem;
+  vertical-align: top;
+}
+
+.info-card table td:first-child {
+  color: #888;
+  white-space: nowrap;
+  width: 40%;
+}
+
+.info-card table td:last-child {
+  color: #ddd;
+}
+
+/* responsivo — ficha da obra e kurama */
+@media (max-width: 960px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .ficha-img {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ficha-img img {
+    max-width: 220px;
+  }
+
+  .kurama-ficha-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .kurama-img img {
+    max-width: 100%;
+  }
+
+  .info-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-grid {
+    gap: 1.5rem;
+  }
+
+  .ficha-img img {
+    max-width: 180px;
+  }
+}
+
+/* --- 5. ALDEIAS --- */
+
+.aldeias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.aldeia-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 50px;
+  padding: 2.0rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.aldeia-card:hover {
+  transform: translateY(-4px);
+  border-color: #cc5500;
+  background: #161616;
+  filter: drop-shadow(0 0 20px rgba(230, 126, 34, 0.3));
+}
+
+.aldeia-img {
+  width: 70px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+  filter: invert(1);
+  transition: filter 0.2s;
+}
+
+.aldeia-card:hover .aldeia-img {
+  filter: invert(1) sepia(1) drop-shadow(0 0 20px rgba(230, 126, 34, 0.3));
+}
+
+.aldeia-card h3 {
+  font-size: 14px;
+  margin-bottom: 0.2rem;
+}
+
+.aldeia-card p {
+  font-size: 12px;
+  color: #777;
+  margin: 0;
+}
+
+/* --- 6. PERSONAGENS --- */
+
+.char-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.char-tab {
+  background: #111;
+  border: 1px solid #222;
+  color: #aaa;
+  font-size: 13px;
+  padding: 0.70rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.char-tab:hover {
+  background: #e36a2ea2;
+  color: #fff;
+  border-color: #e36a2ef1;
+}
+
+.char-tab.active {
+  background: #cc5500;
+  color: #fff;
+  border-color: #cc5500;
+  filter: drop-shadow(0 0 20px rgba(230, 125, 34, 0.482));
+}
+
+.char-panel {
+  display: none;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+  align-items: start;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.char-panel.active {
+  display: grid;
+}
+
+.char-portrait {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1a1a1a;
+  display: flex;
+  align-items: flex-end;
+}
+
+.char-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.char-portrait-name {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  padding: 1rem 0.75rem 0.75rem;
+}
+
+.char-portrait-name span {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.char-portrait-name small {
+  font-size: 11px;
+  color: #e67e22;
+}
+
+.char-village {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 0.75rem;
+}
+
+/* badges de habilidade */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+}
+
+.tag-o { background: #2a1500; color: #e67e22; border: 1px solid #3d2000; } /* laranja */
+.tag-b { background: #001a2a; color: #5baee6; border: 1px solid #00294a; } /* azul */
+.tag-r { background: #2a0000; color: #e65b5b; border: 1px solid #3d0000; } /* vermelho */
+.tag-g { background: #002a10; color: #5be67e; border: 1px solid #003d18; } /* verde */
+
+/* --- 7. JUTSU --- */
+
+.jutsu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.jutsu-card {
+  flex: 0 1 280px;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: border-color 0.2s, transform 0.2s;
+  text-align: center;
+}
+
+.jutsu-card:hover {
+  border-color: #cc5500;
+  transform: translateY(-3px);
+}
+
+.jutsu-icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.jutsu-card h3 {
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+  color: #e67e22;
+}
+
+.jutsu-card p {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 0.75rem;
+}
+
+.jutsu-card ul,
+.jutsu-card ol {
+  font-size: 13px;
+  color: #bbb;
+  padding-left: 1.1rem;
+  text-align: left;
+  display: inline-block;
+}
+
+/* gerador aleatório */
+.jutsu-randomizer {
+  background: #111;
+  border: 1px solid #672b08;
+  border-radius: 12px;
+  padding: 1.5rem;
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.jutsu-randomizer h3 {
+  font-size: 15px;
+  color: #e67e22;
+  margin-bottom: 0.4rem;
+}
+
+.jutsu-randomizer > p {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  background: #cc5500;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.25rem;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, transform 0.1s;
+  font-family: inherit;
+}
+
+.btn-primary:hover { background: #e06010; }
+.btn-primary:active { transform: scale(0.98); }
+
+#jutsu-result {
+  background: #0d0d0d;
+  border: 1px solid #2a2a2a;
+  filter: drop-shadow(0 0 20px rgba(230, 126, 34, 0.3));
+  border-radius: 10px;
+  padding: 1.25rem;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 100%;
+  color: #999;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+/* --- 8. AKATSUKI --- */
+
+#akatsuki {
+  position: relative;
+}
+
+/* imagem de fundo com baixa opacidade */
+.back-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* coloca o conteúdo na frente da imagem de fundo */
+#akatsuki > *:not(.back-img) {
+  position: relative;
+  z-index: 1;
+}
+
+.akatsuki-banner {
+  background: rgba(120, 0, 0, 0.3);
+  border: 1px solid #4a0000;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.akatsuki-banner h3 {
+  color: #e65b5b;
+  margin-bottom: 0.5rem;
+}
+
+.akatsuki-banner p {
+  font-size: 14px;
+  color: #bbb;
+  margin: 0;
+}
+
+.members-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.member-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 250px;
+  height: 280px;
+  border: 1px solid #222;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* imagem normal some no hover */
+.member-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.35s ease, transform 0.3s;
+}
+
+.member-card:hover .member-img {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+/* imagem alternativa aparece no hover */
+.member-img-hover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.member-card:hover .member-img-hover {
+  opacity: 1;
+}
+
+/* painel de info sobe de baixo no hover */
+.member-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.92));
+  padding: 2rem 1rem 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.member-card:hover .member-overlay {
+  transform: translateY(0);
+}
+
+.member-village {
+  font-size: 10px;
+  color: #e67e22;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.member-overlay h4 {
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.member-overlay p {
+  font-size: 12px;
+  color: #bbb;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --- 9. BIJUU --- */
+
+.bijuu-intro {
+  color: #888;
+  margin-bottom: 2.5rem;
+  font-size: 14px;
+}
+
+.bijuu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.bijuu-card {
+  position: relative;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 240px;
+  height: 300px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+
+.bijuu-card:hover {
+  border-color: #cc5500;
+}
+
+/* imagem do bijuu some no hover */
+.bijuu-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s;
+}
+
+/* imagem do jinchūriki aparece no hover */
+.host-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.bijuu-card:hover .bijuu-img { opacity: 0; }
+.bijuu-card:hover .host-img  { opacity: 1; }
+
+/* info padrão e info do hover */
+.bijuu-default-info,
+.bijuu-hover-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
+  padding: 1.5rem 0.75rem 0.75rem;
+  z-index: 2;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.bijuu-hover-info { opacity: 0; }
+
+.bijuu-card:hover .bijuu-default-info { opacity: 0; }
+.bijuu-card:hover .bijuu-hover-info   { opacity: 1; }
+
+.bijuu-hover-info p {
+  font-size: 11px;
+  color: #bbb;
+  margin: 0;
+}
+
+/* badge laranja com número de caudas */
+.tails-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: #fdfdfd;
+  display: inline;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #e67e22;
+  border: 1px solid #e67e22;
+  filter: drop-shadow(0 0 20px rgb(248, 116, 0));
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-bottom: 0.2rem;
+}
+
+/* badge azul com nome do jinchūriki */
+.host-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #ffffff;
+  display: inline;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #0b5485;
+  border: 1px solid #0b5485;
+  filter: drop-shadow(0 0 20px rgb(255, 255, 255));
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-bottom: 0.2rem;
+}
+
+/* --- 10. CRONOLOGIA --- */
+
+.timeline {
+  margin-bottom: 2.5rem;
+}
+
+.tl-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #222;
+  border-radius: 8px;
+  background: #111;
+  transition: border-color 0.2s;
+}
+
+.tl-item:hover {
+  border-color: #cc5500;
+}
+
+.tl-arc {
+  font-size: 11px;
+  font-weight: 600;
+  color: #cc5500;
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+
+.tl-item h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: #eee;
+}
+
+.tl-item p {
+  font-size: 13px;
+  color: #999;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.movies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.movie-card {
+  border: 1px solid #222;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #111;
+  transition: transform 0.2s, border-color 0.2s;
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.movie-card:hover {
+  transform: translateY(-4px);
+  border-color: #cc5500;
+  transform: scale(1.1);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.movie-card:hover img {
+  opacity: 0.85;
+}
+
+.movie-info {
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.movie-year {
+  font-size: 11px;
+  color: #868686;
+}
+
+.movie-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ddd;
+  line-height: 1.4;
+}
+
+/* --- 11. RODAPÉ --- */
+
+footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-top: 1px solid #1f1f1f;
+  background: #0a0a0a;
+}
+
+footer p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  filter: drop-shadow(0 0 20px rgba(255, 119, 0, 0.849));
+}
+
+footer strong {
+  color: #e67e22;
+  font-weight: 600;
+  filter: drop-shadow(0 0 20px rgba(250, 122, 10, 0.705));
+}
