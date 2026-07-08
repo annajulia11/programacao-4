@@ -1,56 +1,90 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 import { CreatePessoaDto } from './dto/create-pessoa.dto';
 import { UpdatePessoaDto } from './dto/update-pessoa.dto';
 import { Pessoa } from './entities/pessoa.entity';
 
 @Injectable()
 export class PessoaService {
-  /** Armazenamento em memória. Trocar por um repositório (TypeORM/Prisma) quando houver banco. */
-  private readonly pessoas: Pessoa[] = [];
-  private proximoId = 1;
+  constructor(
+    @InjectRepository(Pessoa)
+    private readonly pessoaRepository: Repository<Pessoa>,
+  ) {}
 
-  create(createPessoaDto: CreatePessoaDto): Pessoa {
-    const agora = new Date();
-    const pessoa = new Pessoa({
-      id: this.proximoId++,
+  async create(createPessoaDto: CreatePessoaDto): Promise<Pessoa> {
+    const existente = await this.pessoaRepository.findOne({
+      where: { email: createPessoaDto.email },
+    });
+    if (existente) {
+      throw new ConflictException('Já existe um usuário com este e-mail.');
+    }
+
+    const senhaHash = await bcrypt.hash(createPessoaDto.senha, 10);
+
+    const pessoa = this.pessoaRepository.create({
       ...createPessoaDto,
+      senha: senhaHash,
       ativo: createPessoaDto.ativo ?? true,
-      criadoEm: agora,
-      atualizadoEm: agora,
     });
 
-    this.pessoas.push(pessoa);
+    const salva = await this.pessoaRepository.save(pessoa);
+    // Remove a senha do objeto retornado.
+    delete (salva as Partial<Pessoa>).senha;
+    return salva;
+  }
+
+  findAll(): Promise<Pessoa[]> {
+    // senha tem select:false, então não é retornada aqui.
+    return this.pessoaRepository.find();
+  }
+
+  async findOne(id: number): Promise<Pessoa> {
+    const pessoa = await this.pessoaRepository.findOne({ where: { id } });
+    if (!pessoa) {
+      throw new NotFoundException(`Usuário com id ${id} não encontrado.`);
+    }
     return pessoa;
   }
 
-  findAll(): Pessoa[] {
-    return this.pessoas;
+  /**
+   * Busca por e-mail incluindo a senha (usado pela autenticação).
+   */
+  findByEmailComSenha(email: string): Promise<Pessoa | null> {
+    return this.pessoaRepository
+      .createQueryBuilder('pessoa')
+      .addSelect('pessoa.senha')
+      .where('pessoa.email = :email', { email })
+      .getOne();
   }
 
-  findOne(id: number): Pessoa {
-    const pessoa = this.pessoas.find((p) => p.id === id);
+  async update(id: number, updatePessoaDto: UpdatePessoaDto): Promise<Pessoa> {
+    if (updatePessoaDto.senha) {
+      updatePessoaDto.senha = await bcrypt.hash(updatePessoaDto.senha, 10);
+    }
 
+    const pessoa = await this.pessoaRepository.preload({
+      id,
+      ...updatePessoaDto,
+    });
     if (!pessoa) {
       throw new NotFoundException(`Usuário com id ${id} não encontrado.`);
     }
 
-    return pessoa;
+    const salva = await this.pessoaRepository.save(pessoa);
+    delete (salva as Partial<Pessoa>).senha;
+    return salva;
   }
 
-  update(id: number, updatePessoaDto: UpdatePessoaDto): Pessoa {
-    const pessoa = this.findOne(id);
-
-    Object.assign(pessoa, updatePessoaDto, { atualizadoEm: new Date() });
-    return pessoa;
-  }
-
-  remove(id: number): void {
-    const indice = this.pessoas.findIndex((p) => p.id === id);
-
-    if (indice === -1) {
+  async remove(id: number): Promise<void> {
+    const resultado = await this.pessoaRepository.delete(id);
+    if (!resultado.affected) {
       throw new NotFoundException(`Usuário com id ${id} não encontrado.`);
     }
-
-    this.pessoas.splice(indice, 1);
   }
 }

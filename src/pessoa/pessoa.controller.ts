@@ -9,11 +9,15 @@ import {
   ParseIntPipe,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { PessoaService } from './pessoa.service';
 import { CreatePessoaDto } from './dto/create-pessoa.dto';
 import { UpdatePessoaDto } from './dto/update-pessoa.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
+// Todas as rotas abaixo exigem um Bearer token JWT válido.
+@UseGuards(JwtAuthGuard)
 @Controller('pessoa')
 export class PessoaController {
   constructor(private readonly pessoaService: PessoaService) {}

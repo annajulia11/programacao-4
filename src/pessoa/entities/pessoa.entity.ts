@@ -1,17 +1,35 @@
-/**
- * Entidade que representa um Usuário do sistema.
- * (arquivo mantido como pessoa.entity para preservar a estrutura do módulo)
- */
-export class Pessoa {
-  id: number;
-  nome: string;
-  email: string;
-  senha: string;
-  ativo: boolean;
-  criadoEm: Date;
-  atualizadoEm: Date;
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-  constructor(partial: Partial<Pessoa>) {
-    Object.assign(this, partial);
-  }
+/**
+ * Entidade Pessoa (Usuário) mapeada para a tabela `pessoa` no MySQL.
+ */
+@Entity('pessoa')
+export class Pessoa {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({ type: 'varchar', length: 255 })
+  nome: string;
+
+  @Column({ type: 'varchar', length: 255, unique: true })
+  email: string;
+
+  // select: false => a senha não é retornada em consultas por padrão.
+  @Column({ type: 'varchar', length: 255, select: false })
+  senha: string;
+
+  @Column({ type: 'boolean', default: true })
+  ativo: boolean;
+
+  @CreateDateColumn({ name: 'criado_em' })
+  criadoEm: Date;
+
+  @UpdateDateColumn({ name: 'atualizado_em' })
+  atualizadoEm: Date;
 }
