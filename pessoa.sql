@@ -1,10 +1,3 @@
--- =============================================================
--- Banco de dados e tabela correspondente à entidade Pessoa (Usuário)
--- Entidade de referência (NestJS):
---   id, nome, email, senha, ativo, criadoEm, atualizadoEm
--- SGBD: MySQL / MariaDB
--- =============================================================
-
 CREATE DATABASE IF NOT EXISTS nest_pessoa
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
@@ -14,9 +7,7 @@ USE nest_pessoa;
 -- Garante um estado limpo ao reexecutar o script
 DROP TABLE IF EXISTS pessoa;
 
--- -------------------------------------------------------------
 -- Tabela: pessoa
--- -------------------------------------------------------------
 CREATE TABLE pessoa (
   id             INT           NOT NULL AUTO_INCREMENT,
   nome           VARCHAR(255)  NOT NULL,
@@ -32,9 +23,7 @@ CREATE TABLE pessoa (
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci;
 
--- -------------------------------------------------------------
 -- Inserções (2 registros)
--- -------------------------------------------------------------
 INSERT INTO pessoa (nome, email, senha, ativo) VALUES
   ('Ana Souza',  'ana@ex.com',   'segredo123',  TRUE);
 
