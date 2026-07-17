@@ -1,0 +1,274 @@
+/* PROG IV - CSS | Hello Kitty & Miguinhos */
+
+/* Reset geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: "utf-8";
+  background-color: #f9c6d0;
+  color: #333;
+}
+
+/* NAV */
+nav {
+  background-color: #e8789a;
+  text-align: center;
+  padding: 10px 0 8px;
+}
+
+nav h1 {
+  font-size: 1.3rem;
+  color: white;
+  margin-bottom: 8px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(to right, #f07098, #f9c6d0);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 1.8rem;
+  color: white;
+  font-style: italic;
+}
+
+/* MAIN */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* SEÇÕES */
+.secao {
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px 40px;
+  border: 2px solid #f5a0bb;
+  transition: transform 0.3s;
+}
+
+.secao:hover {
+  transform: translateY(-10px);
+}
+
+.secao h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.secao p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* PERSONAGENS */
+.personagens-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.personagem-card:last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.personagem-card {
+  border: 1px solid #f5a0bb;
+  background-color: #f5a0bbcf;
+  border-radius: 10px;
+  padding: 20px 18px;
+  width: 130px;
+  height: 90px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.personagem-card:hover {
+  transform: translateY(-10px);
+  background: linear-gradient(to right, #f07098, #f07099d7);
+}
+
+.personagem-card strong {
+  display: block;
+  font-size: 0.82rem;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.personagem-card span {
+  font-size: 0.75rem;
+  color: #888;
+  font-style: italic;
+}
+
+/* GALERIA */
+.galeria-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.galeria-item {
+  width: 130px;
+  height: 130px;
+  background: linear-gradient(to right, #f07098, #f9c6d0);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.galeria-item:hover {
+  transform: translateY(-10px);
+}
+
+/* Hello Kitty */
+.galeria-item:nth-child(1) img {
+  width: 120%;
+  height: 120%;
+  object-fit: contain;
+  object-position: top;
+}
+
+/* My Melody */
+.galeria-item:nth-child(2) img {
+  width: 150%;
+  height: 150%;
+  object-fit: contain;
+  object-position: top;
+}
+
+/* Kuromi */
+.galeria-item:nth-child(3) img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Cinnamoroll */
+.galeria-item:nth-child(4) img {
+  width: 120%;
+  height: 120%;
+  object-fit: contain;
+}
+
+/* Pompompurin */
+.galeria-item:nth-child(5) img {
+  width: 105%;
+  height: 105%;
+  object-fit: contain;
+}
+
+/* Badtz-Maru */
+.galeria-item:nth-child(6) img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+}
+
+/* Keroppi */
+.galeria-item:nth-child(7) img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+}
+
+/* Pochacco */
+.galeria-item:nth-child(8) img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+}
+
+/* FORMULÁRIO */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-family: "utf-8";
+  color: #555;
+  outline: none;
+  resize: vertical;
+}
+
+form textarea {
+  min-height: 80px;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #bbb;
+}
+
+form button {
+  background-color: #e8789a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+form button:hover {
+  background-color: #d45f84;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 0.85rem;
+  color: white;
+  background-color: #e8789a;
+}

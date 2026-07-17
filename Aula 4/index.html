@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Yami Mask</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-circulo"></div>
+
+  <div id="hud">
+    <h1>Yami Mask</h1>
+    <span>Pontos: <b id="pontos">0</b></span>
+    <span>Tempo: <b id="tempo">15</b>s</span>
+    <button id="btn-iniciar" onclick="iniciar()">Iniciar</button>
+  </div>
+
+  <div id="area"></div>
+
+  <div id="popup">
+    <h2>Fim de jogo!</h2>
+    <p id="msg"></p>
+    <button onclick="iniciar()">Jogar novamente</button>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
